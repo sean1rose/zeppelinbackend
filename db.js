@@ -34,19 +34,5 @@ module.exports = app => {
     });
   }
   return db;
-  // if (!sequelize) {
-  //   sequelize = new Sequelize(
-  //     config.database,
-  //     config.username,
-  //     config.password,
-  //     config.params
-  //   );
-  //   // use authenticate() to test the db connection...
-  //   sequelize.authenticate().then(() => {
-  //     console.log('Success!');
-  //   }).catch((err) => {
-  //     console.log(`Unable to connect to the db cuz of error - ${err}`);
-  //   });
-  // }
-  // return sequelize;
+
 };
