@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-  // define('name', {attributes}, {options})
+  // define('name', {attributes}, {options}) -> 'define' -> define mappings b/w a model and table
     // attributes -> represent fields of a table
     // options -> 
       // associate(models) -> allows models' r/s
