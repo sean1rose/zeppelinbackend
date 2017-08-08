@@ -1,10 +1,27 @@
-module.exports = app => {
-  return {
-    findAll: (params, callback) => {
-      return callback([
-        {title: 'top5artistsatm'},
-        {title: 'top5livesetssatm'}
-      ]);
+module.exports = (sequelize, DataType) => {
+  // define('name', {attributes}, {options})
+    // attributes -> represent fields of a table
+    // options -> 
+      // associate(models) -> allows models' r/s
+  const Lists = sequelize.define('Lists', {
+    id: {
+      type: DataType.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    title: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
     }
-  };
+  }, {
+    classMethods: {
+      associate: (models) => {
+        Lists.belongsTo(models.Users);
+      }
+    }
+  });
+  return Lists;
 };
