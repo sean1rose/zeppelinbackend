@@ -18,5 +18,7 @@ module.exports = {
       min: 0,
       idle: 10000
     }
-  }
+  },
+  jwtSecret: 'z3pp3lin',
+  jwtSession: {session: false}
 };
