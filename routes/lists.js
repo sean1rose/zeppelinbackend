@@ -3,12 +3,6 @@ module.exports = app => {
   const Lists = app.db.models.Lists;
 
   app.route('/lists')
-    .all((req, res, next) => {
-      // middleware for preexecution of routes
-        // don't want req.body.id to overwrite the id of a list since we're using req.body as a parameter for Sequelize functions
-      delete req.body.id;
-      next();
-    })
     .get((req, res) => {
       // '/lists' -> list all lists
       Lists.findAll({})
@@ -29,11 +23,6 @@ module.exports = app => {
     });
 
   app.route('/lists/:id')
-    .all((req, res) => {
-      // middleware
-      delete req.body.id;
-      next();
-    })
     .get((req, res) => {
       Lists.findOne({where: req.params})
         .then(result => {
