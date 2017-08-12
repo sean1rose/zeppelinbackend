@@ -3,7 +3,8 @@ import consign from 'consign';
 const PORT = 5555;
 const app = express();
 
-consign()
+// disable logs created by consign module using verbose false
+consign({verbose: false})
   .include('libs/config.js')
   .then('db.js')
   .then('auth.js')
@@ -12,3 +13,5 @@ consign()
   .then('routes')
   .then('libs/boot.js')
   .into(app);
+
+  module.exports = app;
